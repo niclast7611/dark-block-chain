@@ -3,7 +3,7 @@ import CutCornerButton from "../components/CutCornerButton";
 
 const Header = () => {
   return (
-    <div className="sticky top-0 bg-zinc-900/50 backdrop:blur-lg">
+    <div className="sticky top-0 bg-zinc-900/50 backdrop-blur-lg z-40">
       <div className="container">
         <div className="flex justify-between items-center h-24">
           <div>
