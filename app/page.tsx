@@ -2,6 +2,7 @@ import FeatureCards from "@/sections/FeatureCards";
 import FeatureGrid from "@/sections/FeatureGrid";
 import Header from "@/sections/Header";
 import Hero from "@/sections/Hero";
+import LatestPosts from "@/sections/LatestPosts";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero />
       <FeatureCards />
       <FeatureGrid />
+      <LatestPosts />
     </div>
   );
 }
