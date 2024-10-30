@@ -57,7 +57,6 @@ const Testimonials = () => {
           ))}
         </div>
       </div>
-      s
     </section>
   );
 };

@@ -1,3 +1,4 @@
+import CallToAction from "@/sections/CallToAction";
 import FeatureCards from "@/sections/FeatureCards";
 import FeatureGrid from "@/sections/FeatureGrid";
 import Header from "@/sections/Header";
@@ -14,6 +15,7 @@ export default function Home() {
       <FeatureGrid />
       <LatestPosts />
       <Testimonials />
+      <CallToAction />
     </div>
   );
 }
