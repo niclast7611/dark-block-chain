@@ -18,7 +18,7 @@ const LatestPosts = () => {
       })
       .catch((err) => console.error(err));
   }, []);
-  console.log("sortedFiles", sortedFiles);
+
   return (
     <section className="py-60">
       <div className="container">
