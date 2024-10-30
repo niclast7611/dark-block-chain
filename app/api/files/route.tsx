@@ -34,10 +34,7 @@ export interface File {
   metadata: BlogPostMetadata;
 }
 
-async function getFilesRecursively(
-  dir: string,
-  baseDir: string = dir
-): Promise<BlogPostMetadata[]> {
+async function getFilesRecursively(dir: string): Promise<BlogPostMetadata[]> {
   const items = await readdirAsync(dir);
   const files = [];
 
@@ -47,19 +44,9 @@ async function getFilesRecursively(
     // const relativePath = fullPath.replace(baseDir, "").replace(/^[/\\]/, "");
 
     const fileContent = await readFileAsync(fullPath, "utf-8");
-    const { data, content } = matter(fileContent);
+    const { data } = matter(fileContent);
 
     files.push({
-      // THE FOLLOWING CODE IS COMMENTED EXCESS DATA IN RESPONSE
-      // name: item,
-      // path: `/api/files/${relativePath}`,
-      // directUrl: `/${relativePath}`,
-      // size: stats.size,
-      // mimeType: mime.lookup(fullPath) || "application/octet-stream",
-      // lastModified: stats.mtime,
-      // extension: extname(item).toLowerCase(),
-      // isDirectory: false,
-      // relativePath,
       ...(data as BlogPostMetadata),
     });
   }
@@ -70,7 +57,7 @@ async function getFilesRecursively(
 export async function GET() {
   try {
     const publicDir = join(process.cwd(), "public/staticFiles");
-    const files = await getFilesRecursively(publicDir);
+    const files = (await getFilesRecursively(publicDir)).slice(0, 4);
 
     return NextResponse.json({
       total: files.length,

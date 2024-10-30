@@ -6,7 +6,6 @@ export default function getColorForBlogPost(category: string): string {
       return "cyan";
     case "Security":
       return "violet";
-
     default:
       return "fuchsia";
   }
